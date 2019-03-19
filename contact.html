@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
+-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- required to handle IE -->
 
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,7 +27,7 @@
 
 
 <body>
-  
+    <!-- classic use of the navbar again so that its consistnet going page to page -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href='home.html'> RateMyProfessor </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -51,10 +53,12 @@
       <div class="contactinfo">
         <h1> To Contact Us...</h1>
         <h3> Please speak with Kajal and Sanjana</h3>
-        <button onclick="appear()" id = "question_button" type="button" class="btn btn-success">Questions?</button>
+        <button onclick="appear()" id = "question_button" type="button" class="btn btn-success">Questions?</button> 
+        <!-- calls the function appear() when you click on the button that asks if you have questions -->
         <div class='box' , style="position:absolute; left:530px; top:250px;">
-            <textarea style='display:none;' id='questions'></textarea>
+            <textarea style='display:none;' id='questions'></textarea> 
             <input style= 'display:none' type="submit" , id= "submit" value="Submit" onclick= "submit()">
+            <!-- these two fields are initally hidden just in case you don't have questions but if you indicate you do, user may enter and submit their feedback -->
           </div>
       
 
@@ -63,21 +67,23 @@
           //this is my arrow function
           //this is also a javascript and css modifier
           appear = () =>  {
-            var x = document.getElementById("questions")
-            var y= document.getElementById("submit")
+            var x = document.getElementById("questions") //gets the text area
+            var y= document.getElementById("submit") //gets the submit input 
             
             x.style.display = 'block';
             y.style.display = 'block';
+            //changes the dispaly of the input and text area bceause if this functionw was called that means that the user showed interest by clicking the question button
 
             
           }
-          submit= ()=>{
+          submit= ()=>{ //function called when the user presses the submit button, indiciating they want to submit input
               var x = document.getElementById("questions")
-              if(x.value==""){
-                alert("Please do not leave this box empty.")
+              if(x.value==""){ //if user puts nothing into the text area 
+                alert("Please do not leave this box empty.") //this alert shows but because it means the user tried to enter in their feedback without actually giving feedback
               }
               else{
-                document.getElementById("submit").addEventListener("click", function() {
+                document.getElementById("submit").addEventListener("click", function() { //if the user did actually type in feedback and the submit input is clicked, the function  
+                  //will display the alert of thank you!
                 alert("Thank you for your input!!");
                 });
 

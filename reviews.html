@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
+-->
 
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -8,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="reviews.css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="font-awesome.min.css">
+    
 
 
 <title>Review A Professor</title>
@@ -19,6 +22,7 @@
 
 <body>
 
+    <!-- classic use of the navbar again so that its consistnet going page to page -->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
@@ -50,11 +54,12 @@
 
 
   <div class = 'row'> 
-
+     <!-- This page will show an example of what a Professor's rating page would look like -->
+ <!-- the div class is col-mod-6 because in bootstrap the page is like 12 inches so if you want to split the screen in half you do div of 6 and 6 -->
       <div class = 'col-md-6'>
           <h2>Professor Chopra</h2>
           <div class = 'crop'>
-            
+             <!-- image of the professor will be displayed -->
               <img src="Profile_Pic.jpg" class="profile-pic" alt="Cinque Terre">
 
 
@@ -69,6 +74,7 @@
       <div class = 'col-md-6'>
 
             <form onsubmit= "return validate()" action= "home.html" method= "post">
+               <!-- after form is submitted you are redirected back to homepage to continue searching/voting -->
                 <div class = 'rating'>
                     <h2>Star Rating</h2>
                     <span class="fa fa-star checked"></span>
@@ -77,6 +83,7 @@
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star"></span>
                 </div>
+                <!-- rating stars -->
                 <div class="form-group">
                   <label for="course">Select Course</label>
                   <select class="form-control" id="course">
@@ -85,6 +92,7 @@
                     <option value = 'course2'>CS 3230: Algorithms</option>
                     <option value = 'course3'>CS 4640: Web Applications</option>
                   </select>
+                  <!-- user selects which course they took with the professor -->
                 </div>
                 <div class="form-group">
                   <label for="credits">Credit of Course</label>
@@ -96,15 +104,17 @@
                     <option>5</option>
                   </select>
                 </div>
+                <!-- user selects how many credits the class was  -->
                 <div class="form-group">
                   <label for="feedback_word">Feedback</label>
                   <textarea class="form-control" id="feedback_word" rows="3"></textarea>
                 </div>
-                
+                <!-- user provides extensive feedback about professor and class -->
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="PostPreference">
                     <label class="form-check-label" for="PostPreference">Post as Anonymous</label>
                   </div>
+                  <!-- user has the ability to post anonymously so the review doesn't show his or her name -->
 
                   <br>
                   <button type="submit" class="btn btn-primary" onclick= "validate()">Submit</button>
@@ -120,16 +130,17 @@
           var course = document.getElementById('course');
           var feedback_word = document.getElementById('feedback_word');
           var selectedVal = course.options;
-          var index = course.selectedIndex;
+          var index = course.selectedIndex; 
            
-          if (feedback_word.value.length == 0 || index == 0) 
+          if (feedback_word.value.length == 0 || index == 0) //checks if the user didnt enter any feedback or didn't select a course they took with him then 
          {
-          alert("Enter Feedback!");
+          alert("All Fields Are Not Complete!"); //error message that all the fields aren't filled out
           return false;
          }
         }
 
         //this is to display star rating
+        //https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450 used this reseource
         function start() {
     var allStars = document.getElementsByClassName("fa-star");
     for(var i = 0; i < allStars.length; i++) {

@@ -1,4 +1,5 @@
-
+<!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +10,16 @@
     
     
     label { display: block; }
-    .feedback { font-style: italic; color: red; } 
+    .feedback { font-style: italic; color: red; } /* Red font so its a sreious tone when the user enters a username that isn't long enough */
     h1{
-        text-align: center;
+        text-align: center; /* title should always be centered  */
     }
     body{
-        background-image: url(books.jpg);
+        background-image: url(books.jpg); /* background image from files */
         
     }
     form{
-        text-align: center;
+        text-align: center; /* login form is centered, first thing the user sees */
         
     }
     .row{
@@ -33,7 +34,8 @@
 
 
 <body>
-  
+        <!-- classic use of the navbar again so that its consistnet going page to page -->
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -58,29 +60,29 @@
 
     <div class = 'container'>
             <h1>Login</h1>
-
-            <form action="home.html"method = 'post'>
+            
+            <form action="home.html"method = 'post'> <!-- after loggin in login form will redirect to the homepage so you can start rating and searaching -->
                     <label>Username: </label> 
-                    <input type="text" id="username" autofocus required />
+                    <input type="text" id="username" autofocus required /> <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
                     <div id="user-msg" class="feedback"></div> 
                     <br/>
                     <label>Password: </label> 
-                    <input type="password" id="pwd" required />
+                    <input type="password" id="pwd" required /> <!-- password is required too-->
                     <div id="pwd-msg" class="feedback"></div> 
                     <div class = 'row'>
                             <div class = 'col-md-6'>
-                                    <p><a href="#">Forgot Password?</a></p>
+                                    <p><a href="#">Forgot Password?</a></p> <!-- redirect link in case you forget password  -->
                                     
                                 </div>
             
                                 <div class = 'col-md-6'>
-                                        <p><a href="#">Create Account!</a></p>
+                                        <p><a href="#">Create Account!</a></p> <!-- redirect link in case you haven't made an account on the webstie yet -->
                                 </div>
 
                     </div>
                     
                     <br/>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button> <!-- submitting the form -->
                   </form>
 
 
@@ -92,15 +94,15 @@
 
 <script>
 
-   function checkUsername() {
+   function checkUsername() { //checks if the username is 8 characters or not
       var msg = document.getElementById("user-msg");      
       if (this.value.length < 8 && this.value.length > 0)     	  
-         msg.textContent = "Username must be minimum 8 characters";
+         msg.textContent = "Username must be minimum 8 characters"; //error message displayed if the user enters a username less than 8 characters
       else
          msg.textContent = "";
    }
    var user = document.getElementById("username");
-   user.addEventListener('blur', checkUsername, false);
+   user.addEventListener('blur', checkUsername, false); //calls the function when you blur away from username input field
   
    
   </script>
