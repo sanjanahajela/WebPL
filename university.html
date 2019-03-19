@@ -49,7 +49,7 @@
 
        <div class= "jumbotron">
          <h1> Add A University </h1>
-         <form>
+         <form action = 'home.html'>
 
             <div class = "container">
                 <div class="input-group mb-3">
@@ -57,12 +57,12 @@
                       <span class="input-group-text" id="inputGroup-sizing-default">University Name*</span>
                     
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="University of Virginia" pattern="^[a-zA-Z]+$" title ='Enter a single world name, no numbers or spaces'>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="University of Virginia" required>
         
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroup-sizing-default">University Abbreviation (not required)</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="U.Va" pattern="^[a-zA-Z]+$" title ='Enter a single world name, no numbers or spaces'>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="U.Va">
             </div>
 
             <div id="user-msg" class="feedback"></div> 
@@ -74,7 +74,7 @@
                       <span class="input-group-text" id="inputGroup-sizing-default">University Location*</span>
                     
                     </div>
-                    <input type="text" id= "location" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Charlottesville, VA" pattern="^[a-zA-Z]+$" title ='Enter a single world name, no numbers'>
+                    <input type="text" id= "location" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Charlottesville, VA" required>
             </div>
   
             
@@ -92,10 +92,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
          </form>
           
-    
-
-    
-
-  <script type="text/javascript" src="/Users/Kajal217/Desktop/CS4640/WebPL/ratings.js"></script>
 </body>
 </html>
