@@ -52,8 +52,9 @@
         <h1> To Contact Us...</h1>
         <h3> Please speak with Kajal and Sanjana</h3>
         <button onclick="appear()" id = "question_button" type="button" class="btn btn-success">Questions?</button>
-        <div class='box' >
+        <div class='box' , style="position:absolute; left:530px; top:250px;">
             <textarea style='display:none;' id='questions'></textarea>
+            <input style= 'display:none' type="submit" , id= "submit" value="Submit" onclick= "submit()">
           </div>
       
         </form>
@@ -62,8 +63,19 @@
           //this is also a javascript and css modifier
           appear = () =>  {
             var x = document.getElementById("questions")
+            var y= document.getElementById("submit")
             
             x.style.display = 'block';
+            y.style.display = 'block';
+
+            
+          }
+          submit= ()=>{
+              var x = document.getElementById("questions")
+              if(x.value==""){
+                alert("Please do not leave this box empty.")
+              }
+
           }
       
       
