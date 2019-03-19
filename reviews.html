@@ -84,12 +84,12 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="feedback">Feedback</label>
-                  <textarea class="form-control" id="feedback" rows="3"></textarea>
+                  <label for="feedback_word">Feedback</label>
+                  <textarea class="form-control" id="feedback_word" rows="3"></textarea>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Post as Anonymous</label>
+                    <input type="checkbox" class="form-check-input" id="PostPreference">
+                    <label class="form-check-label" for="PostPreference">Post as Anonymous</label>
                   </div>
                   <button type="submit" class="btn btn-primary" onclick= "validate()">Submit</button>
               </form>
@@ -99,12 +99,14 @@
 
 
       <script type="text/javascript">
-        function validate() {
-          var course = document.getElementById('course')
-          var selectedVal = credit.options[credit.selectedIndex].value;
-          if (selectedValue == "selectcard")
+      //this function is both arrow and annnymous 
+        validate =() => {
+          var course = document.getElementById('course');
+          var feedback_word = document.getElementById('feedback_word');
+          var selectedVal = course.value;
+          if (feedback_word.value.length == 0 || course.value == 'selectcard') 
          {
-          alert("Please select a card type");
+          alert("Enter Feedback!");
           return false;
          }
         }
