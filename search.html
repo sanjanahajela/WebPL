@@ -31,7 +31,6 @@
         </div>  
       </nav>
 
-  <input type="text" placeholder="Search..">
   <style>
   
 /* Style the links inside the navigation bar */
@@ -40,26 +39,22 @@
 
 /* Style the search box inside the navigation bar */
 
-input[type=text] {
-  width: 130px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
+
 /* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-  width: 30%;
-}
+
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 
 </style>
 </div>
-<div class= "search">
+<div class= "search", style="position:absolute; left:500px; top:200px">
   <input type="text" placeholder="Search for professors or universities..">
   <style>
+  <a href="reviews.html">
   .search input[type=text]{
-    float: center;
-    width: 60%;
+    
+    width: 600%;
     height: 50px;
+    size: 400px;
     font-size: 20pt;
   }
   </style>
