@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rate My Professor</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> 
+  <style>
+    
+    label { display: block; }
+    .feedback { font-style: italic; color: red; } 
+    h1{
+        text-align: center;
+    }
+    body{
+        background-color: lightblue;
+        
+    }
+    form{
+        text-align: center;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
+                 
+                 <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">   
+                   <ul class="navbar-nav">
+                     <li class= "nav-item">
+                       <a class= "nav-link" href= "search.html">Search</a>
+                                                
+                     <li class="nav-item"> 
+                       <a class="nav-link" href="contact.html">Contact</a>
+                     </li>
+         
+                     
+                     
+                   </ul>
+                 </div>  
+               </nav>
+
+    <div class = 'container'>
+            <h1>Login</h1>
+
+            <form action="home.html"method = 'post'>
+                    <label>Username: </label> 
+                    <input type="text" id="username" autofocus required />
+                    <div id="user-msg" class="feedback"></div> 
+                    <br/>
+                    <label>Password: </label> 
+                    <input type="password" id="pwd" required />
+                    <div id="pwd-msg" class="feedback"></div> 
+                    <br/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
+
+    </div>
+    
+
+
+
+
+<script>
+
+   function checkUsername() {
+      var msg = document.getElementById("user-msg");      
+      if (this.value.length < 8 && this.value.length > 0)     	  
+         msg.textContent = "Username is too short";
+      else
+         msg.textContent = "";
+   }
+   var user = document.getElementById("username");
+   user.addEventListener('blur', checkUsername, false);
+  
+   
+  </script>
+
+</body>
+</html>
