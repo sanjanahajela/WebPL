@@ -16,3 +16,11 @@ body{
 h2{
     text-align: center;
 }
+
+.rating{
+  text-align: center;
+}
+
+.checked {
+  color: orange;
+}
