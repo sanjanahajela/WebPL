@@ -47,15 +47,15 @@
 </style>
 </div>
 <div class= "search", style="position:absolute; left:50px; top:200px">
-  <form action= "reviews.html" onsubmit= "return validate()" method= "post">
-    <input type="text" placeholder="Search for professors or universities.." name= "search">
-    <input type="submit">
+  <form onsubmit= "validate()" method= "post">
+    <input type="text" placeholder="Search for professors or universities.." name= "search" id= "search">
+    <input type="submit" value="Submit" onclick= "validate()">
     <script> 
-      function validateForm() {
+      function validate() {
         var x = document.getElementById("search");
-        if (x == "") {
+        alert(x);
+        if (x.value== "") {
           alert("Search must be filled out");
-          return false;
   }
 }
 </script>
