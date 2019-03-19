@@ -95,7 +95,7 @@
    function checkUsername() {
       var msg = document.getElementById("user-msg");      
       if (this.value.length < 8 && this.value.length > 0)     	  
-         msg.textContent = "Username is too short";
+         msg.textContent = "Username must be minimum 8 characters";
       else
          msg.textContent = "";
    }
