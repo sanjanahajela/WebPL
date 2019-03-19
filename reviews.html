@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> 
     <link rel="stylesheet" type="text/css" href="reviews.css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+
 
 <title>Review A Professor</title>
 
@@ -117,15 +119,17 @@
         validate =() => {
           var course = document.getElementById('course');
           var feedback_word = document.getElementById('feedback_word');
-          var selectedVal = course.value;
-           if ($(this).is(":checked"))
-          if (feedback_word.value.length == 0 || course.value == 'selectcard') 
+          var selectedVal = course.options;
+          var index = course.selectedIndex;
+           
+          if (feedback_word.value.length == 0 || index == 0) 
          {
           alert("Enter Feedback!");
           return false;
          }
         }
 
+        //this is to display star rating
         function start() {
     var allStars = document.getElementsByClassName("fa-star");
     for(var i = 0; i < allStars.length; i++) {
