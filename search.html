@@ -8,6 +8,8 @@
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> if you downloaded bootstrap to your computer -->
 
     <!-- required scripts for IE --> 
+
+     <!-- classic use of the navbar again so that its consistnet going page to page -->
    
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -80,12 +82,12 @@
 
         var x = document.getElementById("search");
         
-        if (x.value== "") {
-          alert("Search must be filled out");
+        if (x.value== "") { //if the user didnt enter anythign in to the search input 
+          alert("Search must be filled out"); //they will get an alert that they have to enter a name to search for a university of professor
           return false;
   }
         else{
-          document.getElementById("table").style.display="table";
+          document.getElementById("table").style.display="table"; //a table displaying corresponding results of the search 
           return false;
         
         }
