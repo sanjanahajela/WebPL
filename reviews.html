@@ -60,18 +60,19 @@
 
       <div class = 'col-md-6'>
 
-            <form>
+            <form onsubmit= "return validate()" action= "home.html" method= "post">
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Select Course</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>CS 1110: Introduction To Programming </option>
-                    <option>CS 3230: Algorithms</option>
-                    <option>CS 4640: Web Applications</option>
+                  <label for="course">Select Course</label>
+                  <select class="form-control" id="course">
+                    <option value="selectcard">--- Please select ---</option>
+                    <option value = 'course1'>CS 1110: Introduction To Programming </option>
+                    <option value = 'course2'>CS 3230: Algorithms</option>
+                    <option value = 'course3'>CS 4640: Web Applications</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect2">Credit of Course</label>
-                  <select multiple class="form-control" id="exampleFormControlSelect2">
+                  <label for="credits">Credit of Course</label>
+                  <select multiple class="form-control" id="credits">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -80,18 +81,32 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Feedback</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <label for="feedback">Feedback</label>
+                  <textarea class="form-control" id="feedback" rows="3"></textarea>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Post as Anonymous</label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" onclick= "validate()">Submit</button>
               </form>
       </div>
 
+      
 
+
+      <script type="text/javascript">
+        function validate() {
+          var course = document.getElementById('course')
+          var selectedVal = credit.options[credit.selectedIndex].value;
+          if (selectedValue == "selectcard")
+         {
+          alert("Please select a card type");
+          return false;
+         }
+        }
+
+        </script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
