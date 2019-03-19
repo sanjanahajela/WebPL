@@ -39,19 +39,46 @@
 </style>
 </div>
 <div class= "search", style="position:absolute; left:50px; top:200px">
-  <form onsubmit= "return validate()" action= "reviews.html" method= "post">
+  <form onsubmit= "return validate()" method= "post">
     <input type="text" placeholder="Search for professors or universities.." name= "search" id= "search">
     <input type="submit" value="Submit" onclick= "validate()">
+
+    <table style="width:100%; display:none;", id="table">
+      <tr>
+        <th>Professor</th>
+        <th>University</th> 
+        
+      </tr>
+      <tr>
+        <td>
+          <a href="reviews.html">
+          <div style="height:100%;width:100%">
+            Professor Chopra
+        </td>
+        <td>University of Virginia</td> 
+        
+      </tr>
+     
+    </table>
     <script> 
-    //anonmous function
+
       validate = function () {
+
+
         var x = document.getElementById("search");
-       
+        
         if (x.value== "") {
           alert("Search must be filled out");
           return false;
   }
+        else{
+          document.getElementById("table").style.display="table";
+          return false;
+        
+        }
+        
 }
+
 </script>
 
   </form>
