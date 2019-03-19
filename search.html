@@ -35,18 +35,8 @@
       </nav>
 
   <style>
+
   
-/* Style the links inside the navigation bar */
-
-/* Change the color of links on hover */
-
-/* Style the search box inside the navigation bar */
-
-
-/* When the input field gets focus, change its width to 100% */
-
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-
 </style>
 </div>
 <div class= "search", style="position:absolute; left:50px; top:200px">
@@ -54,7 +44,8 @@
     <input type="text" placeholder="Search for professors or universities.." name= "search" id= "search">
     <input type="submit" value="Submit" onclick= "validate()">
     <script> 
-      function validate() {
+    //anonmous function
+      validate = function () {
         var x = document.getElementById("search");
        
         if (x.value== "") {
