@@ -19,7 +19,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-
+$professors = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $first_name = $_POST['first_name'];
@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     {
         if(mysqli_num_rows($result) > 0)
         {
+            $response['sucess'] = 0;
             echo "Exists";
         }
         else{

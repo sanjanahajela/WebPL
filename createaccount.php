@@ -3,7 +3,7 @@ $host = 'localhost';
 $dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
-$usertable="profile";
+$usertable="login";
 // Create connection
 $conn = new mysqli($host, $dbusername, $password, $dbname);
 // Check connection
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
-    $query = "SELECT * from profile where first_name ='$first_name'";
+    $query = "SELECT * from login where first_name ='$first_name'";
     
     // if ($result=mysqli_query($conn,$query))
     // {
