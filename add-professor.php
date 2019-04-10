@@ -1,24 +1,26 @@
+<!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
+-->
+
 <?php
 
 $host = 'localhost';
 $dbusername = 'ks4vp';
 $password = 'CSgods123';
-$dbnmame = 'professors';
+$dbname = 'professor';
+$usertable="professor";
+$yourfield = "first_name";
 
 
-$db = new PDO ($dsn, $username, $password);
+// Create connection
+$conn = new mysqli($host, $dbusername, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
 
-catch(PDOException $e){
-    $error_message = $e -> getMessage();
-    echo "<p>An error occured while connecting to the database: $error_message </p>";
 
-}
 
-catch(Exception $e){
-    $error_message = $e -> getMessage();
-    echo "<p>Error message: $error_message </p>";
-}
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -26,7 +28,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $last_name = $_POST['last_name'];
     $university = $_POST['university'];
 
+    $sql = "INSERT INTO professor (first_name, last_name, university)
+    VALUES ('$first_name', '$last_name', '$university')";
 
-    echo 'Your information has been submitted';
+
+    if ($conn->query($sql) === TRUE) {
+        header('location: http://localhost/WebPL/search.html');
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+
+$conn->close();
+
+
+
+
+    
+
+
+    //echo 'Your information has been submitted';
 }
+
 ?>
