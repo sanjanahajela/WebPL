@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
     $password= $_POST['password'];
-    echo('hello');
     $query = "SELECT * from login where username ='$username'";
     
 
