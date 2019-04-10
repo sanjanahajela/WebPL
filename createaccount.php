@@ -16,32 +16,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
     $password= $_POST['password'];
-    echo('hello')
-    #$query = "INSERT * from login where first_name ='$first_name'";
+    echo('hello');
+    $query = "SELECT * from login where username ='$username'";
     
-    // if ($result=mysqli_query($conn,$query))
-    // {
-    //     if(mysqli_num_rows($result) > 0)
-    //     {
-    //         echo "Exists";
-    //     }
-    //     else{
-    //         $sql = "INSERT INTO profile (first_name, last_name, username, password)
-    //         VALUES ('$first_name', '$last_name', '$username, $password')";
-    //         if ($conn->query($sql) === TRUE) {
-    //             header('location: http://localhost/WebPL/home.html');
-    //         } else {
-    //             echo "Error: " . $sql . "<br>" . $conn->error;
-    //         }
-    //     }
+
+    if ($result=mysqli_query($conn,$query))
+    {
+        if(mysqli_num_rows($result) > 0)
+        {
+            $response['sucess'] = 0;
+            echo "Exists";
+        }
+        else{
+            $sql = "INSERT INTO professor (first_name, last_name, university)
+            VALUES ('$first_name', '$last_name', '$username', 'password')";
+            if ($conn->query($sql) === TRUE) {
+                header('location: http://localhost/WebPL/home.html');
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
         
-    // }
-    // else{
-    //     echo "Create Account failed.";
-    // }
+    }
+    else{
+        echo "Query Failed.";
+
+    }
+
         
-    
-    
-    //echo 'Your information has been submitted';
+
+
+
+    $conn->close();
 }
 ?>
