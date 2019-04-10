@@ -4,8 +4,9 @@
 $host = 'localhost';
 $dbusername = 'ks4vp';
 $password = 'CSgods123';
-$dbnmame = 'professors';
-$usertable= 'profiles'
+$dbname = 'professor';
+$usertable="profiles";
+$yourfield = "first_name";
 
 
 $db = new PDO ($dsn, $first_name, $last_name, $username, $password );

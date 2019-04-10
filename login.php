@@ -3,8 +3,9 @@
 $host = 'localhost';
 $dbusername = 'ks4vp';
 $password = 'CSgods123';
-$dbnmame = 'professors';
-$usertable= 'profiles'
+$dbname = 'professor';
+$usertable="profiles";
+$yourfield = "first_name";
 
 
 $db = new PDO ($dsn, $username, $password );
@@ -28,6 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $password= $_POST['password']
 
 
-    echo 'Thank you for creating an account!';
+    echo 'Thank you for logging in!';
 }
 ?>
