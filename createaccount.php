@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbusername = 'ks4vp';
+$dbusername = 'sh9as';
 $password = 'CSgods123';
 $dbname = 'professor';
 $usertable="login";
@@ -46,6 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
-    $conn->close();
-}
+
+};
 ?>
