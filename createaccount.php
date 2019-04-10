@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbusername = 'sh9as';
+$dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
 $usertable="login";
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
-    $password= $_POST['password'];
+    $password= $_POST['pwd'];
     $query = "SELECT * from login where username ='$username'";
     
 
