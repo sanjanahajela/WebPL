@@ -60,9 +60,20 @@
                </nav>
 
     <div class = 'container'>
-            <h1>Login</h1>
+            <h1>Create Account</h1>
             
-            <form action="home.html"method = 'post'> <!-- after loggin in login form will redirect to the homepage so you can start rating and searaching -->
+            <form action = 'create_account.php' method = "post">  <!-- after loggin in login form will redirect to the homepage so you can start rating and searaching -->
+                    <label> First Name: </label>
+                    <input type="text" id="first_name" autofocus required /> 
+                    <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
+                    <div id="user-msg" class="feedback"></div> 
+                    <br/>
+                    <label> Last Name: </label>
+                    <input type="text" id="last_name" autofocus required /> 
+                    <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
+                    <div id="user-msg" class="feedback"></div> 
+                    <br/>
+
                     <label>Username: </label> 
                     <input type="text" id="username" autofocus required /> <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
                     <div id="user-msg" class="feedback"></div> 
@@ -72,12 +83,11 @@
                     <div id="pwd-msg" class="feedback"></div> 
                     <div class = 'row'>
                             <div class = 'col-md-6'>
-                                    <p><a href="#">Forgot Password?</a></p> <!-- redirect link in case you forget password  -->
-                                    
+                                  
                                 </div>
             
                                 <div class = 'col-md-6'>
-                                        <p><a href="#">Create Account!</a></p> <!-- redirect link in case you haven't made an account on the webstie yet -->
+                                       <!-- redirect link in case you haven't made an account on the webstie yet -->
                                 </div>
 
                     </div>
@@ -85,37 +95,7 @@
                     <br/>
                     <button type="submit" class="btn btn-primary">Submit</button> <!-- submitting the form -->
                   </form>
-                  <?php
-
-$host = 'localhost';
-$dbusername = 'ks4vp';
-$password = 'CSgods123';
-$dbnmame = 'professors';
-
-
-$db = new PDO ($dsn, $username, $password);
-
-
-catch(PDOException $e){
-    $error_message = $e -> getMessage();
-    echo "<p>An error occured while connecting to the database: $error_message </p>";
-
-}
-
-catch(Exception $e){
-    $error_message = $e -> getMessage();
-    echo "<p>Error message: $error_message </p>";
-}
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $username = $_POST['username'];
-    $username = $_POST['username'];
-
-
-    echo 'Successfully logged in';
-}
-?>
+                  
 
     </div>
 
@@ -124,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
    function checkUsername() { //checks if the username is 8 characters or not
       var msg = document.getElementById("user-msg");      
-      if (this.value.length < 8 && this.value.length > 0)     	  
+      if (this.value.length < 8 && this.value.length > 0)         
          msg.textContent = "Username must be minimum 8 characters"; //error message displayed if the user enters a username less than 8 characters
       else
          msg.textContent = "";
