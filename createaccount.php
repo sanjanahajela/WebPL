@@ -1,36 +1,44 @@
-
 <?php
-
 $host = 'localhost';
 $dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
-$usertable="profiles";
-$yourfield = "first_name";
-
-
-$db = new PDO ($dsn, $first_name, $last_name, $username, $password );
-
-
-catch(PDOException $e){
-    $error_message = $e -> getMessage();
-    echo "<p>An error occured while connecting to the database: $error_message </p>";
-
-}
-
-catch(Exception $e){
-    $error_message = $e -> getMessage();
-    echo "<p>Error message: $error_message </p>";
-}
-
-
+$usertable="profile";
+// Create connection
+$conn = new mysqli($host, $dbusername, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
-    $username= $_POST['username'];
-    $password= $_POST['password']
-
-
-    echo 'Thank you for creating an account!';
+    $username = $_POST['username'];
+    $query = "SELECT * from profile where first_name ='$first_name'";
+    
+    // if ($result=mysqli_query($conn,$query))
+    // {
+    //     if(mysqli_num_rows($result) > 0)
+    //     {
+    //         echo "Exists";
+    //     }
+    //     else{
+    //         $sql = "INSERT INTO profile (first_name, last_name, username, password)
+    //         VALUES ('$first_name', '$last_name', '$username, $password')";
+    //         if ($conn->query($sql) === TRUE) {
+    //             header('location: http://localhost/WebPL/home.html');
+    //         } else {
+    //             echo "Error: " . $sql . "<br>" . $conn->error;
+    //         }
+    //     }
+        
+    // }
+    // else{
+    //     echo "Create Account failed.";
+    // }
+        
+    $conn->close();
+    
+    //echo 'Your information has been submitted';
 }
 ?>
