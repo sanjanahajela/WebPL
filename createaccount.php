@@ -10,11 +10,13 @@ $conn = new mysqli($host, $dbusername, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+$conn->close();
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
-    $query = "SELECT * from login where first_name ='$first_name'";
+    echo('hello')
+    #$query = "INSERT * from login where first_name ='$first_name'";
     
     // if ($result=mysqli_query($conn,$query))
     // {
@@ -37,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //     echo "Create Account failed.";
     // }
         
-    $conn->close();
+    
     
     //echo 'Your information has been submitted';
 }
