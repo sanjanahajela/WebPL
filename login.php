@@ -1,34 +1,41 @@
+
 <?php
+// When an HTML form is submitted to the server using the post method,
+// its field data are automatically assigned to the implicit $_POST global array variable.
+// PHP script can check for the presence of individual submission fields using
+// a built-in isset() function to seek an element of a specified HTML field name.
+// When this confirms the field is present, its name and value can usually be
+// stored in a cookie. This might be used to stored username and password details
+// to be used across a website
 
-$host = 'localhost';
-$dbusername = 'ks4vp';
-$password = 'CSgods123';
-$dbname = 'professor';
-$usertable="profiles";
-$yourfield = "first_name";
-
-
-$db = new PDO ($dsn, $username, $password );
-
-
-catch(PDOException $e){
-    $error_message = $e -> getMessage();
-    echo "<p>An error occured while connecting to the database: $error_message </p>";
-
+// Define a function to handle failed validation attempts
+function reject($entry)
+{
+//    echo 'Please <a href="login.php">Log in </a>';
+   exit();    // exit the current script, no value is returned
 }
 
-catch(Exception $e){
-    $error_message = $e -> getMessage();
-    echo "<p>Error message: $error_message </p>";
-}
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
- 
-    $username= $_POST['username'];
-    $password= $_POST['password']
-
-
-    echo 'Thank you for logging in!';
+if ($_SERVER['REQUEST_METHOD'] == "POST" && strlen($_POST['username']) > 0)
+{
+   $user = trim($_POST['username']);
+   if (!ctype_alnum($user))   // ctype_alnum() check if the values contain only alphanumeric data
+      reject('User Name');
+      
+   if (isset($_POST['password']))
+   {
+      $pwd = trim($_POST['password']);
+      if (!ctype_alnum($password))
+         reject('Password');
+      else
+      {
+         // setcookie(name, value, expiery-time)
+         // setcookie() function stores the submitted fields' name/value pair
+         setcookie('user', $user, time()+3600);
+         setcookie('password', md5($password), time()+3600);  // create a hash conversion of password values using md5() function
+               
+         // redirect the browser to another page using the header() function to specify the target URL
+         header('Location: home.html');
+      }
+   }
 }
 ?>
