@@ -75,10 +75,6 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-
-
-      if ($_SERVER['REQUEST_METHOD'] == 'GET')
-      #$item = $_GET['search'];
       $query = "SELECT * from professor";
       $records = mysqli_query($conn,$query);
     ?>
