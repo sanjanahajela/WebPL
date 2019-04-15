@@ -107,18 +107,14 @@
 
       <tr>
         <th>Professor</th>
-        <th></th> 
-        <br>
         <th>University</th>
       <tr>
       <?php
       while($p =mysqli_fetch_assoc($records)){
         echo "<tr>";
 
-        echo "<td>".$p['first_name']."</td>";
-        echo "<td>".$p['last_name']."</td>";
+        echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
         echo "<td>".$p['university']."</td>";
-
         echo "</tr>";
 
       }
