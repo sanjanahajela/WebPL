@@ -15,7 +15,7 @@
    
     
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> 
-  <link rel="stylesheet" type="text/css" href="reviews.css" /> 
+  
 
 <title>Review A Professor</title>
 
@@ -27,8 +27,7 @@
 
 
 <body>
-    <!-- classic use of the navbar again so that its consistnet going page to page -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href='home.html'> RateMyProfessor </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
@@ -46,63 +45,148 @@
           </ul>
         </div>
       </nav>
-      
-      
-      </div>
-      
-      <div class="contactinfo">
-        <h1> To Contact Us...</h1>
-        <h3> Please speak with Kajal and Sanjana</h3>
-        <button onclick="appear()" id = "question_button" type="button" class="btn btn-success">Questions?</button> 
-        <!-- calls the function appear() when you click on the button that asks if you have questions -->
-        <div class='box' , style="position:absolute; left:530px; top:250px;">
-            <textarea style='display:none;' id='questions'></textarea> 
-            <input style= 'display:none' type="submit" , id= "submit" value="Submit" onclick= "submit()">
-            <!-- these two fields are initally hidden just in case you don't have questions but if you indicate you do, user may enter and submit their feedback -->
-          </div>
-      
 
 
-        <script>
-          //this is my arrow function
-          //this is also a javascript and css modifier
-          appear = () =>  {
-            var x = document.getElementById("questions") //gets the text area
-            var y= document.getElementById("submit") //gets the submit input 
-            
-            x.style.display = 'block';
-            y.style.display = 'block';
-            //changes the dispaly of the input and text area bceause if this functionw was called that means that the user showed interest by clicking the question button
 
-            
-          }
-          submit= ()=>{ //function called when the user presses the submit button, indiciating they want to submit input
-              var x = document.getElementById("questions")
-              if(x.value==""){ //if user puts nothing into the text area 
-                alert("Please do not leave this box empty.") //this alert shows but because it means the user tried to enter in their feedback without actually giving feedback
-              }
-              else{
-                document.getElementById("submit").addEventListener("click", function() { //if the user did actually type in feedback and the submit input is clicked, the function  
-                  //will display the alert of thank you!
-                alert("Thank you for your input!!");
-                });
-
-              }
+<div class="container">
 
 
-          }
-      
-      
-      
-      
-      
-        </script>
-      
-      
-      </div>
 
+
+
+<section class="section">
 
   
+    <h2 class="section-heading h1 pt-4">Contact Us</h2>
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+        a matter of hours to help you.</p>
+ 
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-8 col-xl-9">
+            <form id ="contact-form" name="contact-form" action="mail.php" method="POST"  onsubmit="return validateForm()" >
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <div class="md-form">
+                                <input type="text" id="name" name="name" class="form-control">
+                                <label for="name" class="">Your name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <div class="md-form">
+                                <input type="text" id="email" name="email" class="form-control">
+                                <label for="email" class="">Your email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <input type="text" id="subject" name="subject" class="form-control">
+                            <label for="subject" class="">Subject</label>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <textarea type="text" id="message" name="message" class="md-textarea"></textarea>
+                            <label for="message">Your message</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+
+            <div class="center-on-small-only">
+                <a class="btn btn-primary" onclick="validateForm()">Send</a>
+            </div> <div class="status" id="status"></div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center" style= 'display:none' id = 'list'>
+            <ul class="contact-icons">
+                <li><i class="fa fa-map-marker fa-2x"></i>
+                    <p>San Francisco, CA 94126, USA</p>
+                </li>
+
+                <li><i class="fa fa-phone fa-2x"></i>
+                    <p>+ 01 703 535 2362</p>
+                </li>
+
+                <li><i class="fa fa-envelope fa-2x"></i>
+                    <p>CSgods123@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+     <!--refrenced md-boostrap/com to get a grid format to our contact me page -->
+</section>
+<section>
+<button onclick="appear()" id = "question_button" type="button" class="btn btn-success">Talk Directly?</button> 
+</section>
+
+
+
+
+
+</div>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.js"></script>
+<!--Custom scripts-->
+<script>
+    appear = () =>  {
+            var x = document.getElementById("list") //gets the text area
+            
+            x.style.display = 'block';
+            //changes the dispaly of the private contact information since user has more intention to contact personally
+
+            
+          }
+
+function validateForm() {
+    document.getElementById('status').innerHTML = "Sending...";
+    document.getElementById('contact-form').submit();
+
+}
+</script>
 </body>
 
 

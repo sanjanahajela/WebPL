@@ -22,9 +22,14 @@ if ($conn->connect_error) {
 $professors = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $university = $_POST['university'];
+
+    if (empty($firt_name)){
+        echo("Enter Professor's first name");
+    }
 
     $query = "SELECT * from professor where first_name ='$first_name'";
     #checks if the first name of a professor is in the database but you want to check all 
