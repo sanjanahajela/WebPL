@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> 
+    <style>
+      .table{; 
+        -webkit-column-count: 3; /* Chrome, Safari, Opera */
+        -moz-column-count: 3; /* Firefox */
+        column-count: 3;
+
+        -webkit-column-gap: 500px; /* Chrome, Safari, Opera */
+        -moz-column-gap: 500px; /* Firefox */
+        column-gap: 500px;
+      }
+    
+    </style>
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> if you downloaded bootstrap to your computer -->
 
     <!-- required scripts for IE --> 
@@ -90,10 +102,13 @@
 
 
   <table style="width:100%; display:none;", id="table">
+
+
       <tr>
         <th>Professor</th>
-        <th>University</th> 
-        <th>Subject</th>
+        <th></th> 
+        <br>
+        <th>University</th>
       <tr>
       <?php
       while($p =mysqli_fetch_assoc($records)){
