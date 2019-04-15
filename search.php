@@ -70,8 +70,9 @@
   <title>Enter Professor or University Name</title>
   <form onsubmit= "return validate()" method= "post">
     <!-- Search form -->
+
     <div class="md-form mt-0">
-      <input class="form-control" type="text" placeholder="Enter professor or universitiy name..." aria-label="Search" name= "search" id= "search">
+      <input class="form-control" type="text" placeholder="Enter a Professor or Universitiy Name" aria-label="Search" name= "search" id= "search">
     
     </div>
 
