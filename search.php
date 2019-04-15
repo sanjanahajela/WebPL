@@ -57,8 +57,17 @@
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
   <form onsubmit= "return validate()" method= "post">
-    <input type="text" placeholder="Enter professor or universitiy name..." name= "search" id= "search">
-    <input type="submit" value="Submit" onclick= "validate()">
+    <!-- Search form -->
+    <div class="md-form mt-0">
+      <input class="form-control" type="text" placeholder="Enter professor or universitiy name..." aria-label="Search" name= "search" id= "search">
+    
+    </div>
+
+    <br>
+    <div class="center-on-small-only">
+      <a class="btn btn-primary" onclick="validate()">Submit</a>
+    </div> 
+
     <br>
     <br>
 
