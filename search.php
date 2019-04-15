@@ -113,7 +113,7 @@
       while($p =mysqli_fetch_assoc($records)){
         echo "<tr>";
 
-        echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
+        echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>".'<a href="reviews.html">Link</a>';
         echo "<td>".$p['university']."</td>";
         echo "</tr>";
 
