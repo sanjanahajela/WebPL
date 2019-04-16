@@ -68,7 +68,7 @@
 </style>
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
-  <form onsubmit= "return validate()" method= "post">
+  <form action = 'search.php?go' onsubmit= "return validate()" method= "post">
     <!-- Search form -->
 
     <div class="md-form mt-0">
@@ -78,27 +78,36 @@
 
     <br>
     <div class="center-on-small-only">
-      <a class="btn btn-primary" onclick="validate()">Submit</a>
+      <input type="submit" name="submit" value="Search"> 
     </div> 
 
     <br>
     <br>
-
+    </form>
 
     <?php
+      $host = 'localhost';
+      $dbusername = 'ks4vp';
+      $password = 'CSgods123';
+      $dbname = 'professor';
+      $usertable="professor";
 
-  $host = 'localhost';
-  $dbusername = 'ks4vp';
-  $password = 'CSgods123';
-  $dbname = 'professor';
-  $usertable="professor";
-  $conn = new mysqli($host, $dbusername, $password, $dbname);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+    if (isset($_POST['submit'])){
+      if (isset($_GET['go'])){
+        $item = $_POST['search'];
+        echo($item);
+        $conn = new mysqli($host, $dbusername, $password, $dbname);
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+          
+            $query = "SELECT * from professor";
+            $records = mysqli_query($conn,$query);
+      }
+    }
 
-      $query = "SELECT * from professor";
-      $records = mysqli_query($conn,$query);
+
+
     ?>
 
 
@@ -145,7 +154,7 @@
 
 </script>
 
-  </form>
+  
 
   
   <style>
