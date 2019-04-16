@@ -71,7 +71,7 @@
     <!-- Search form -->
 
     <div class="md-form mt-0">
-      <input class="form-control" type="text" placeholder="Enter a Professor or Universitiy Name" aria-label="Search" name= "item" id= "search">
+      <input class="form-control" type="text" placeholder="Enter a Professor or University Name" aria-label="Search" name= "item" id= "search">
     
     </div>
 
