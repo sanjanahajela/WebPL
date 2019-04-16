@@ -50,13 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && strlen($_POST['username']) > 0)
          // setcookie(name, value, expiery-time)
          // setcookie() function stores the submitted fields' name/value pair
          setcookie('user', $user, time()+3600);
-         setcookie('password', md5($password), time()+3600);  // create a hash conversion of password values using md5() function
+         setcookie('password', md5($password), time()+3600);
+
+         $_SESSION['user']=true;  // create a hash conversion of password values using md5() function
     }
     else{
       echo "This user does not exist";
     }           
          // redirect the browser to another page using the header() function to specify the target URL
-         //header('Location: home.html');
+         header('Location: home.php');
       }
    
 
