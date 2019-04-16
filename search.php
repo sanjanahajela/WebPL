@@ -1,4 +1,4 @@
- <!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
+<!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
 -->
 
 <!DOCTYPE html>
@@ -13,7 +13,6 @@
         -webkit-column-count: 3; /* Chrome, Safari, Opera */
         -moz-column-count: 3; /* Firefox */
         column-count: 3;
-
         -webkit-column-gap: 500px; /* Chrome, Safari, Opera */
         -moz-column-gap: 500px; /* Firefox */
         column-gap: 500px;
@@ -68,7 +67,7 @@
 </style>
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
-  <form action = 'search.php?go' onsubmit= "return validate()" method= "post">
+  <form onsubmit= "return validate()" method= "post">
     <!-- Search form -->
 
     <div class="md-form mt-0">
@@ -78,36 +77,25 @@
 
     <br>
     <div class="center-on-small-only">
-      <input type="submit" name="submit" value="Search"> 
+      <a class="btn btn-primary" onclick="validate()">Submit</a>
     </div> 
 
     <br>
     <br>
-    </form>
+
 
     <?php
-      $host = 'localhost';
-      $dbusername = 'ks4vp';
-      $password = 'CSgods123';
-      $dbname = 'professor';
-      $usertable="professor";
-
-    if (isset($_POST['submit'])){
-      if (isset($_GET['go'])){
-        $item = $_POST['search'];
-        echo($item);
-        $conn = new mysqli($host, $dbusername, $password, $dbname);
-        if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-        }
-          
-            $query = "SELECT * from professor";
-            $records = mysqli_query($conn,$query);
-      }
-    }
-
-
-
+  $host = 'localhost';
+  $dbusername = 'ks4vp';
+  $password = 'CSgods123';
+  $dbname = 'professor';
+  $usertable="professor";
+  $conn = new mysqli($host, $dbusername, $password, $dbname);
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+      $query = "SELECT * from professor";
+      $records = mysqli_query($conn,$query);
     ?>
 
 
@@ -121,11 +109,9 @@
       <?php
       while($p =mysqli_fetch_assoc($records)){
         echo "<tr>";
-
         echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>".'<a href="reviews.html">Link</a>';
         echo "<td>".$p['university']."</td>";
         echo "</tr>";
-
       }
     
       ?>
@@ -136,8 +122,6 @@
     <script> 
       //this is an anonymous function
       validate = function () {
-
-
         var x = document.getElementById("search");
         
         if (x.value== "") { //if the user didnt enter anythign in to the search input 
@@ -151,10 +135,9 @@
         }
         
 }
-
 </script>
 
-  
+  </form>
 
   
   <style>
@@ -163,7 +146,6 @@
   }
   .h1{
     float:center;
-
   }
   
   .search input[type=text]{
