@@ -1,4 +1,5 @@
-
+<!-- // Kajal Sheth(ks4vp) and Sanjana Hajela(sh9as)
+-->
 <?php
 // When an HTML form is submitted to the server using the post method,
 // its field data are automatically assigned to the implicit $_POST global array variable.
@@ -36,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && strlen($_POST['username']) > 0)
    //echo "hi";
    $username = $_POST['username'];
     $password = $_POST['password'];
+    //going through the database to find the username and password that are associated with what the user enters
+
    $query = "SELECT * FROM login WHERE username= '$username' AND password= '$password'";
 
    $user = trim($_POST['username']);
@@ -49,8 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && strlen($_POST['username']) > 0)
       
          // setcookie(name, value, expiery-time)
          // setcookie() function stores the submitted fields' name/value pair
+      //creates a cookie when the user logs in 
          setcookie('user', $user, time()+3600);
-         
+         //starts a session 
 
          $_SESSION['user']=true;  
          header('Location: home.php');

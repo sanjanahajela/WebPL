@@ -7,7 +7,7 @@ $dbname = 'professor';
 $usertable="login";
 $yourfield = "first_name";
 
-
+//connecting to database
 $conn = new mysqli($host, $dbusername, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 
 $usern= $_COOKIE["user"];
-
+//searching through database to find the first and last name of the username 
 $query = "SELECT * from login where username= '$usern'";
 $records = mysqli_query($conn,$query);
 while($p =mysqli_fetch_assoc($records)){

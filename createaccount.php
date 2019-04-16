@@ -32,11 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($result=mysqli_query($conn,$query))
     {
         if(mysqli_num_rows($result) > 0)
-        {
+        {//checks if the account is already in the database (username and password)
             $response['sucess'] = 0;
             echo "This account already exists";
         }
-        else{
+        else{//inserts new user account into the database
             $sql = "INSERT INTO login (first_name, last_name, username,password)
             VALUES ('$first_name', '$last_name', '$username', '$user_password')";
             if ($conn->query($sql) === TRUE) {
