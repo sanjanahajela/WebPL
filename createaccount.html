@@ -36,7 +36,7 @@
 
 
 <body>
-        <!-- classic use of the navbar again so that its consistnet going page to page -->
+        <!-- We made sure to use a nav bar for every account in all of the pages so that there is consistency and uniformity between pages-->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
@@ -63,7 +63,8 @@
     <div class = 'container'>
             <h1>Create Account</h1>
             
-            <form action = 'createaccount.php' method = "post">  <!-- after loggin in login form will redirect to the homepage so you can start rating and searaching -->
+            <form action = 'createaccount.php' method = "post">  <!-- We linked our create account form to the php form so that the fields can be validated and added to the database
+              after loggin in login form will redirect to the homepage so you can start rating and searaching -->
                     <label> First Name: </label>
                     <input type="text" name="first_name" autofocus required /> 
                     <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
@@ -103,7 +104,7 @@
 
 <script>
 
-   function checkUsername() { //checks if the username is 8 characters or not
+   function checkUsername() { //validates whether the username is the correct number of characters 
       var msg = document.getElementById("user-msg");      
       if (this.value.length < 8 && this.value.length > 0)         
          msg.textContent = "Username must be minimum 8 characters"; //error message displayed if the user enters a username less than 8 characters

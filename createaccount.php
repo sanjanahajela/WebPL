@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $response['sucess'] = 0;
             echo "This account already exists";
         }
-        else{//inserts new user account into the database
+        else{//inserts new user account into the database including all of the attributes like first name, last name, username, password
             $sql = "INSERT INTO login (first_name, last_name, username,password)
             VALUES ('$first_name', '$last_name', '$username', '$user_password')";
             if ($conn->query($sql) === TRUE) {
