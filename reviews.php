@@ -90,8 +90,7 @@
      <!-- This page will show an example of what a Professor's rating page would look like -->
  <!-- the div class is col-mod-6 because in bootstrap the page is like 12 inches so if you want to split the screen in half you do div of 6 and 6 -->
       <div class = 'col-md-6'>
-        <?php
-        $last_name = 
+
           <h2>Professor Chopra</h2>
           <div class = 'crop'>
              <!-- image of the professor will be displayed -->

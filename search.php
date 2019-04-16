@@ -13,9 +13,9 @@
         -webkit-column-count: 3; /* Chrome, Safari, Opera */
         -moz-column-count: 3; /* Firefox */
         column-count: 3;
-        -webkit-column-gap: 500px; /* Chrome, Safari, Opera */
-        -moz-column-gap: 500px; /* Firefox */
-        column-gap: 500px;
+        -webkit-column-gap: 5000px; /* Chrome, Safari, Opera */
+        -moz-column-gap: 5000px; /* Firefox */
+        column-gap: 5000px;
       }
     
     </style>
@@ -114,6 +114,7 @@
             echo "<tr>";
             echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
             echo "<td>".$p['university']."</td>";
+            echo "<td><a href=\"reviews.html?id=" .$p['first_name']. ' ' .$p['last_name'] . "\">Rate!</a></td>";
             echo "</tr>";
           }
     
