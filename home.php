@@ -37,7 +37,7 @@
 
     
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     	<a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
+     	<a class= "navbar-brand"  > RateMyProfessor </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
