@@ -67,7 +67,7 @@
 </style>
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
-  <form onsubmit= "return validate()" method= "post">
+  <form onsubmit= "return validate()" method= "GET" action = "search2.php">
     <!-- Search form -->
 
     <div class="md-form mt-0">
@@ -86,20 +86,7 @@
     <br>
 
     </form>
-    <?php
-  $host = 'localhost';
-  $dbusername = 'ks4vp';
-  $password = 'CSgods123';
-  $dbname = 'professor';
-  $usertable="professor";
-  $conn = new mysqli($host, $dbusername, $password, $dbname);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-  $temp_professors = array();
-      $query = "SELECT * from professor";
-      $records = mysqli_query($conn,$query);
-    ?>
+
 
 
   <table style="width:100%; display:none;", id="table">
@@ -110,12 +97,7 @@
         <th>University</th>
       <tr>
       <?php
-      while($p =mysqli_fetch_assoc($records)){
-        echo "<tr>";
-        echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>".'<a href="reviews.html">Link</a>';
-        echo "<td>".$p['university']."</td>";
-        echo "</tr>";
-      }
+
     
       ?>
  
