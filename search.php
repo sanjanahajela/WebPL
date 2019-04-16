@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> 
+    <style>
+      .table{; 
+        -webkit-column-count: 3; /* Chrome, Safari, Opera */
+        -moz-column-count: 3; /* Firefox */
+        column-count: 3;
+
+        -webkit-column-gap: 500px; /* Chrome, Safari, Opera */
+        -moz-column-gap: 500px; /* Firefox */
+        column-gap: 500px;
+      }
+    
+    </style>
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> if you downloaded bootstrap to your computer -->
 
     <!-- required scripts for IE --> 
@@ -57,8 +69,18 @@
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
   <form onsubmit= "return validate()" method= "post">
-    <input type="text" placeholder="Enter professor or universitiy name..." name= "search" id= "search">
-    <input type="submit" value="Submit" onclick= "validate()">
+    <!-- Search form -->
+
+    <div class="md-form mt-0">
+      <input class="form-control" type="text" placeholder="Enter a Professor or Universitiy Name" aria-label="Search" name= "search" id= "search">
+    
+    </div>
+
+    <br>
+    <div class="center-on-small-only">
+      <a class="btn btn-primary" onclick="validate()">Submit</a>
+    </div> 
+
     <br>
     <br>
 
@@ -81,19 +103,18 @@
 
 
   <table style="width:100%; display:none;", id="table">
+
+
       <tr>
         <th>Professor</th>
-        <th>University</th> 
-        <th>Subject</th>
+        <th>University</th>
       <tr>
       <?php
       while($p =mysqli_fetch_assoc($records)){
         echo "<tr>";
 
-        echo "<td>".$p['first_name']."</td>";
-        echo "<td>".$p['last_name']."</td>";
+        echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>".'<a href="reviews.html">Link</a>';
         echo "<td>".$p['university']."</td>";
-
         echo "</tr>";
 
       }
