@@ -77,13 +77,15 @@
 
     <br>
     <div class="center-on-small-only">
-      <a class="btn btn-primary" onclick="validate()">Submit</a>
+      <input  type="submit" name="submit" value="Search"> 
+       <!--  <a class="btn btn-primary" onclick="validate()">Submit</a> -->
+     
     </div> 
 
     <br>
     <br>
 
-
+    </form>
     <?php
   $host = 'localhost';
   $dbusername = 'ks4vp';
@@ -94,6 +96,7 @@
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
+  $temp_professors = array();
       $query = "SELECT * from professor";
       $records = mysqli_query($conn,$query);
     ?>
@@ -137,7 +140,7 @@
 }
 </script>
 
-  </form>
+
 
   
   <style>
