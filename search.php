@@ -86,6 +86,10 @@
 
 
     <?php
+    #when the user submits the info, since the action is to reload the page, it will read the PHP code, see that it is a 
+    #get request, and isset aka the text with name item has a value that was subitted, so the s function will be called
+    #which will get the item that was searched, log into the databaes, search every column for a corresponding word by 
+    #looping through the database and returning those results
     function s (){
       $item = $_GET['item'];
       $host = 'localhost';
@@ -98,24 +102,26 @@
         die("Connection failed: " . $conn->connect_error);
       }
       $query = "SELECT * from professor where first_name = '$item' OR last_name = '$item' OR university = '$item'";
-      $records = mysqli_query($conn,$query);
+      $records = mysqli_query($conn,$query); #the query, want to see if the word you searched by is in any column
   
   
         echo '<table style="width:100%;", id="table">';
   
   
         echo "<tr>";
-        echo"<th>Professor</th>";
-        echo "<th>University</th>";
+        echo"<th>Professor</th>"; #column name 
+        echo "<th>University</th>"; #column name 
         echo"<tr>";
        
         while($p =mysqli_fetch_assoc($records)){
           $fn = $p['first_name'];
           $ln = $p['last_name'];
           echo "<tr>";
-          echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
+          echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>"; #echo the first and last name together 
           echo "<td>".$p['university']."</td>";
-          echo "<td><a href=\"reviews.php?first_name=$fn&last_name=$ln" . "\">Rate!</a></td>";
+          echo "<td><a href=\"reviews.php?first_name=$fn&last_name=$ln" . "\">Rate!</a></td>"; #redirects to professor page 
+          #passes on variables in the url like we learned in class such as first name and last name so they can be used in the 
+          #reviews page 
           echo "</tr>";
         }
     }
