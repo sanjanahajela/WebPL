@@ -5,7 +5,7 @@
 
 
 $host = 'localhost';
-$dbusername = 'sh9as';
+$dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
 $usertable="professor";
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql = "INSERT INTO professor (first_name, last_name, university)
             VALUES ('$first_name', '$last_name', '$university')";
             if ($conn->query($sql) === TRUE) {
-                header('location: http://192.168.64.2/WebPL/search.php');
+                header('location: http://localhost/WebPL/search.php');
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }

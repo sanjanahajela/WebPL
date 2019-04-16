@@ -94,7 +94,7 @@
       <?php
       if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $last_name = $_GET['last_name'];
-        echo ("Professor"." " . $last_name);
+        echo "<h2>"."Professor"." " . $last_name."</h2>";
       }
       
       ?>
