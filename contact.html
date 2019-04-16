@@ -64,7 +64,7 @@
 
     <div class="row">
 
-        <!--Grid column-->
+        <!--Template to ask necessary info for users to contact us -->
         <div class="col-md-8 col-xl-9">
             <form id ="contact-form" name="contact-form" action="mail.php" method="POST"  onsubmit="return validateForm()" >
 
@@ -130,7 +130,7 @@
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
+        <!--This is hidden and gets activated if the user clicks on the button to have more interest-->
         <div class="col-md-3 text-center" style= 'display:none' id = 'list'>
             <ul class="contact-icons">
                 <li><i class="fa fa-map-marker fa-2x"></i>
@@ -154,6 +154,7 @@
 <section>
 <button onclick="appear()" id = "question_button" type="button" class="btn btn-success">Talk Directly?</button> 
 </section>
+<!--If this button is clicked, then the display will change-->
 
 
 
