@@ -49,6 +49,7 @@
 
 
                if (isset($_SESSION['user'])) {
+                 #is there is cookie/there is a session, then the user has the ability to logout
                ?>
                 <li class="nav-item"> 
               <a class="nav-link" href="contact.html">Contact</a>
@@ -62,6 +63,7 @@
 <?php
 }
                 else {
+                  #if there is no session, there is no cookie saved, the user can still login
                  ?>
                   <li class="nav-item"> 
               <a class="nav-link" href="contact.html">Contact</a>

@@ -118,6 +118,7 @@
 
             <form onsubmit= "return validate()" action= "home.html" method= "post">
                <!-- after form is submitted you are redirected back to homepage to continue searching/voting -->
+            
                 <div class = 'rating'>
                     <div class="star-rating">
                         <div class="star-rating__wrap">
