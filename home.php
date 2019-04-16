@@ -54,6 +54,8 @@
               <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class = 'nav-item'>
+                <a class = 'nav-link' href ='profile.php'>Profile</a>
+                <li class = 'nav-item'>
                 <a class = 'nav-link' href ='logOut.php'>Logout</a>
                 </li> 
               

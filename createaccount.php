@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if(mysqli_num_rows($result) > 0)
         {
             $response['sucess'] = 0;
-            echo "Exists";
+            echo "This account already exists";
         }
         else{
             $sql = "INSERT INTO login (first_name, last_name, username,password)
