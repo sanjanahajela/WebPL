@@ -8,7 +8,7 @@
 // stored in a cookie. This might be used to stored username and password details
 // to be used across a website
 $host = 'localhost';
-$dbusername = 'sh9as';
+$dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
 $usertable="login";

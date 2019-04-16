@@ -5,7 +5,7 @@
 
 
 $host = 'localhost';
-$dbusername = 'sh9as';
+$dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
 $usertable="login";

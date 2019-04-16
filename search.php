@@ -111,10 +111,12 @@
           echo"<tr>";
          
           while($p =mysqli_fetch_assoc($records)){
+            $fn = $p['first_name'];
+            $ln = $p['last_name'];
             echo "<tr>";
             echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
             echo "<td>".$p['university']."</td>";
-            echo "<td><a href=\"reviews.html?id=" .$p['first_name']. ' ' .$p['last_name'] . "\">Rate!</a></td>";
+            echo "<td><a href=\"reviews.php?first_name=$fn&last_name=$ln" . "\">Rate!</a></td>";
             echo "</tr>";
           }
     
