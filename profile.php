@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 <?php
+$host = 'localhost';
+$dbusername = 'sh9as';
+$password = 'CSgods123';
+$dbname = 'professor';
+$usertable="login";
+$yourfield = "first_name";
 
-echo 'welcome ' . $_COOKIE["user"]. '!';
+
+$conn = new mysqli($host, $dbusername, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+
+$usern= $_COOKIE["user"];
+
+$query = "SELECT * from login where username= '$usern'";
+$records = mysqli_query($conn,$query);
+while($p =mysqli_fetch_assoc($records)){
+            echo "<tr>";
+            echo "welcome ". "<td>".$p['first_name']. ' ' .$p['last_name']."</td>". "!";
+            
+            echo "</tr>";
+          }
 ?>
+
+
+
+
+
+
+
+
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- required to handle IE -->
         
     <meta name="viewport" content="width=device-width, initial-scale=1">
