@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql = "INSERT INTO professor (first_name, last_name, university)
             VALUES ('$first_name', '$last_name', '$university')";
             if ($conn->query($sql) === TRUE) {
-                header('location: http://localhost/WebPL/search.html');
+                header('location: http://localhost/WebPL/search.php');
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
