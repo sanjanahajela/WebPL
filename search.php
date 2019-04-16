@@ -67,7 +67,7 @@
 </style>
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
-  <form onsubmit= "return validate()" method= "GET" action = "search2.php">
+  <form  method= "GET" action = "search2.php">
     <!-- Search form -->
 
     <div class="md-form mt-0">

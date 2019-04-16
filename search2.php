@@ -1,7 +1,7 @@
 <?php
 
               $item = $_GET['search'];
-            echo($item);
+            
   
               $host = 'localhost';
               $dbusername = 'ks4vp';
@@ -12,14 +12,15 @@
               if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
               }
-              else{
-                echo("it worked");
-              }
+
+
+     
+              
+              $query = "SELECT * from professor where first_name == 'David'"; 
+              $records = mysqli_query($conn, $query);
       
-              $query = "SELECT * from professor where first_name == '$item'"; 
-              $records = mysqli_query($conn,$query);
-      
-              while($row=mysql_fetch_array($result)){ 
+              while($row = mysqli_fetch_assoc($records)){ 
+                echo('here2');
                 $FirstName  =$row['first_name']; 
                 $LastName=$row['last_name']; 
                 
