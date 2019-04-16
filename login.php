@@ -52,13 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && strlen($_POST['username']) > 0)
          setcookie('user', $user, time()+3600);
          
 
-         $_SESSION['user']=true;  // create a hash conversion of password values using md5() function
+         $_SESSION['user']=true;  
+         header('Location: home.php');
+         echo "user found";// create a hash conversion of password values using md5() function
     }
     else{
       echo "This user does not exist";
+      header('Location: login.html');
     }           
          // redirect the browser to another page using the header() function to specify the target URL
-         header('Location: home.php');
+         
       }
    
 
