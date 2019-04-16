@@ -67,11 +67,11 @@
 </style>
 <div class= "search", style="position:absolute; left:50px; top:200px">
   <title>Enter Professor or University Name</title>
-  <form  method= "GET" action = "search2.php">
+  <form onsubmit= "return validate()" method= "GET" action = "search2.php">
     <!-- Search form -->
 
     <div class="md-form mt-0">
-      <input class="form-control" type="text" placeholder="Enter a Professor or Universitiy Name" aria-label="Search" name= "search" id= "search">
+      <input class="form-control" type="text" placeholder="Enter a Professor or University Name" aria-label="Search" name= "search" id= "search">
     
     </div>
 

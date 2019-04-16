@@ -85,7 +85,7 @@
         <h1> Students Helping Students</h1>
         <p> A site to give ratings and feedback of professors in all United States universities </p>
         <p> 
-          <a class= "btn btn-primary btn-lg" href= "http://localhost/WebPL/search.php" role= "button"> Submit a Rating </a>   <!-- this button redirects to search page --> 
+          <a class= "btn btn-primary btn-lg" href= "http://192.168.64.2/WebPL/search.php" role= "button"> Submit a Rating </a>   <!-- this button redirects to search page --> 
         </p>
       </div>
     </div>
