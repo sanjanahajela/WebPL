@@ -86,48 +86,47 @@
 
 
     <?php
+    function s (){
+      $item = $_GET['item'];
+      $host = 'localhost';
+      $dbusername = 'ks4vp';
+      $password = 'CSgods123';
+      $dbname = 'professor';
+      $usertable="professor";
+      $conn = new mysqli($host, $dbusername, $password, $dbname);
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+      $query = "SELECT * from professor where first_name = '$item' OR last_name = '$item' OR university = '$item'";
+      $records = mysqli_query($conn,$query);
+  
+  
+        echo '<table style="width:100%;", id="table">';
+  
+  
+        echo "<tr>";
+        echo"<th>Professor</th>";
+        echo "<th>University</th>";
+        echo"<tr>";
+       
+        while($p =mysqli_fetch_assoc($records)){
+          $fn = $p['first_name'];
+          $ln = $p['last_name'];
+          echo "<tr>";
+          echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
+          echo "<td>".$p['university']."</td>";
+          echo "<td><a href=\"reviews.php?first_name=$fn&last_name=$ln" . "\">Rate!</a></td>";
+          echo "</tr>";
+        }
+    }
     if ($_SERVER['REQUEST_METHOD'] == "GET"){
       if (isset($_GET['item'])){
-        $item = $_GET['item'];
-        $host = 'localhost';
-        $dbusername = 'ks4vp';
-        $password = 'CSgods123';
-        $dbname = 'professor';
-        $usertable="professor";
-        $conn = new mysqli($host, $dbusername, $password, $dbname);
-        if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-        }
-        $query = "SELECT * from professor where first_name = '$item' OR last_name = '$item' OR university = '$item'";
-        $records = mysqli_query($conn,$query);
-    
-    
-          echo '<table style="width:100%;", id="table">';
-    
-    
-          echo "<tr>";
-          echo"<th>Professor</th>";
-          echo "<th>University</th>";
-          echo"<tr>";
-         
-          while($p =mysqli_fetch_assoc($records)){
-            $fn = $p['first_name'];
-            $ln = $p['last_name'];
-            echo "<tr>";
-            echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
-            echo "<td>".$p['university']."</td>";
-            echo "<td><a href=\"reviews.php?first_name=$fn&last_name=$ln" . "\">Rate!</a></td>";
-            echo "</tr>";
-          }
-    
-    
+        s();
+
         }
      
 
       }
-
-
-  
       ?>
  
      
