@@ -61,13 +61,13 @@
     <div class = 'container'>
             <h1>Login</h1>
             
-            <form action="home.html"method = 'post'> <!-- after loggin in login form will redirect to the homepage so you can start rating and searaching -->
+            <form action="login.php" method = 'post'> <!-- after loggin in login form will redirect to the homepage so you can start rating and searaching -->
                     <label>Username: </label> 
-                    <input type="text" id="username" autofocus required /> <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
+                    <input type="text" id="username" name = "username" autofocus required /> <!-- of course the username is required. autofocus so as soon as the page loads you are already ready to enter in your username -->
                     <div id="user-msg" class="feedback"></div> 
                     <br/>
                     <label>Password: </label> 
-                    <input type="password" id="pwd" required /> <!-- password is required too-->
+                    <input type="password" id="pwd" name= "password" required /> <!-- password is required too-->
                     <div id="pwd-msg" class="feedback"></div> 
                     <div class = 'row'>
                             <div class = 'col-md-6'>
@@ -82,7 +82,7 @@
                     </div>
                     
                     <br/>
-                    <button type="submit" class="btn btn-primary">Submit</button> <!-- submitting the form -->
+                    <input type="submit" value="Submit" ><!-- submitting the form -->
                   </form>
 
     </div>

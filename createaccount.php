@@ -8,7 +8,7 @@ $host = 'localhost';
 $dbusername = 'sh9as';
 $password = 'CSgods123';
 $dbname = 'professor';
-$usertable="user";
+$usertable="login";
 $yourfield = "first_name";
 
 
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['username'];
     $user_password = $_POST['pwd'];
 
-    $query = "SELECT * from user where username ='$username'";
+    $query = "SELECT * from login where username ='$username'";
     #checks if the first name of a professor is in the database but you want to check all 
     if ($result=mysqli_query($conn,$query))
     {
@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo "Exists";
         }
         else{
-            $sql = "INSERT INTO user (first_name, last_name, username,user_password)
+            $sql = "INSERT INTO login (first_name, last_name, username,password)
             VALUES ('$first_name', '$last_name', '$username', '$user_password')";
             if ($conn->query($sql) === TRUE) {
-                header('location: http://localhost/WebPL/home.html');
+                header('location: http://192.168.64.2/WebPL/home.html');
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
