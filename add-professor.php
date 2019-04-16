@@ -9,17 +9,17 @@ $dbusername = 'ks4vp';
 $password = 'CSgods123';
 $dbname = 'professor';
 $usertable="professor";
-$yourfield = "first_name";
+#setting the hostname,database username, database password, database name, and table name 
 
-
-// Create connection
+#Try to Create a Connection
 $conn = new mysqli($host, $dbusername, $password, $dbname);
+
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$professors = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
