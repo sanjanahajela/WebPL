@@ -71,13 +71,13 @@
     <!-- Search form -->
 
     <div class="md-form mt-0">
-      <input class="form-control" type="text" placeholder="Enter a Professor or University Name" aria-label="Search" name= "item" id= "search">
+      <input type="text" name="search_query" ng-model="search_query" ng-keyup="fetchData()" placeholder="Search for a Professor" class="form-control">
     
     </div>
 
     <br>
     <div class="center-on-small-only">
-      <input class="btn btn-primary" onclick="validate()" value="Submit" type="submit">
+      <input class="btn btn-primary" ng-app="live_search_app" ng-controller="live_search_controller" ng-init="fetchData()" value="Submit" type="submit">
     </div> 
     </form>
 
@@ -86,59 +86,66 @@
 
 
     <?php
-    #when the user submits the info, since the action is to reload the page, it will read the PHP code, see that it is a 
-    #get request, and isset aka the text with name item has a value that was subitted, so the s function will be called
-    #which will get the item that was searched, log into the databaes, search every column for a corresponding word by 
-    #looping through the database and returning those results
-    function s (){
-      $item = $_GET['item'];
-      $host = 'localhost';
-      $dbusername = 'ks4vp';
-      $password = 'CSgods123';
-      $dbname = 'professor';
-      $usertable="professor";
-      $conn = new mysqli($host, $dbusername, $password, $dbname);
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
-      $query = "SELECT * from professor where first_name = '$item' OR last_name = '$item' OR university = '$item'";
-      $records = mysqli_query($conn,$query); #the query, want to see if the word you searched by is in any column
-  
-  
-        echo '<table style="width:100%;", id="table">';
-  
-  
-        echo "<tr>";
-        echo"<th>Professor</th>"; #column name 
-        echo "<th>University</th>"; #column name 
-        echo"<tr>";
-       
-        while($p =mysqli_fetch_assoc($records)){
-          $fn = $p['first_name'];
-          $ln = $p['last_name'];
-          echo "<tr>";
-          echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>"; #echo the first and last name together 
-          echo "<td>".$p['university']."</td>";
-          echo "<td><a href=\"reviews.php?first_name=$fn&last_name=$ln" . "\">Rate!</a></td>"; #redirects to professor page 
-          #passes on variables in the url like we learned in class such as first name and last name so they can be used in the 
-          #reviews page 
-          echo "</tr>";
-        }
-    }
+    header('Access-Control-Allow-Origin: http://localhost:4200');
+    header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
     if ($_SERVER['REQUEST_METHOD'] == "GET"){
       if (isset($_GET['item'])){
-        s();
-
+        $item = $_GET['item'];
+        $host = '192.168.64.2';
+        $dbusername = 'sh9as';
+        $password = 'CSgods123';
+        $dbname = 'professor';
+        $usertable="professor";
+        $conn = new mysqli($host, $dbusername, $password, $dbname);
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+        $query = "SELECT * from professor where first_name = '$item' OR last_name = '$item' OR university = '$item'";
+        $records = mysqli_query($conn,$query);
+    
+    
+          echo '<table style="width:100%;", id="table">';
+    
+    
+          echo "<tr>";
+          echo"<th>Professor</th>";
+          echo "<th>University</th>";
+          echo"<tr>";
+         
+          while($p =mysqli_fetch_assoc($records)){
+            echo "<tr>";
+            echo "<td>".$p['first_name']. ' ' .$p['last_name']."</td>";
+            echo "<td>".$p['university']."</td>";
+            echo "<td><a href=\"reviews.html?id=" .$p['first_name']. ' ' .$p['last_name'] . "\">Rate!</a></td>";
+            echo "</tr>";
+          }
+    
+    
         }
      
 
       }
+
+
+  
       ?>
  
      
     </table>
 
     <script> 
+      var app = angular.module('live_search_app', []);
+      app.controller('live_search_controller', function($scope, $http){
+      $scope.fetchData = function(){
+      $http({
+          method:"POST",
+          url:"fetch.php",
+          data:{search_query:$scope.search_query}
+      }).success(function(data){
+      $scope.searchData = data;
+  });
+ };
+});
       //this is an anonymous function
       validate = function () {
         var x = document.getElementById("search");
