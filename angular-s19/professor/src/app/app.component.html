@@ -105,8 +105,11 @@
     </div>
   
     <div class="form-check mb-3">
-      <input [(ngModel)]="orderModel.sendText" class=" form-check-input" type="checkbox" name="sendtxt" ng-init="orderModel.sendText = true">
+      <input [(ngModel)]="orderModel.sendText" class=" form-check-input" type="checkbox" name="sendtxt" ng-init="orderModel.sendText == true">
       <label class="form-check-label">Anonymous </label>
+      <div *ngIf="orderModel.sendText == true">
+        <b>You're name will remail a secret! </b> <br/>
+        </div> 
     </div>
 
 
@@ -117,9 +120,7 @@
 
   </form>
 
-  <div *ngIf="orderModel.sentText">
-    <b>You must enter email so we can contact you! </b> <br/>
-    </div> <br/>
+
 
 
 
