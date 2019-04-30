@@ -27,10 +27,12 @@ setColor(){
 
   // let's create a property to store a response from the back end
   // and try binding it back to the view
-  responsedata;
+
 
   drinks = ['Website', 'Professor', 'Rating','Other'];
-  orderModel = new Order('Tom Smith', 'duh@uva.edu', '','Concerns', false);
+  orderModel = new Order('', '','','',false);
+  responsedata = new Order('', '','','', false);
+
  
   constructor(private http: HttpClient) { }
 
@@ -40,7 +42,7 @@ setColor(){
      let params = JSON.stringify(data);
 
      //this.http.get('http://localhost/cs4640s19/ngphp-get.php?str='+encodeURIComponent(params))
-     this.http.post('http://localhost/WebPL/ngphp-post.php',data)
+     this.http.post<Order>('http://localhost/WebPL/ngphp-post.php',data)
      //this.http.post('http://localhost/cs4640s19/ngphp-post.php', data)
      .subscribe((data) => {
         console.log('Got data from backend', data);
