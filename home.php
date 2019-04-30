@@ -37,7 +37,7 @@
 
     
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     	<a class= "navbar-brand"  > RateMyProfessor </a>
+      <a class= "navbar-brand"  > RateMyProfessor </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,12 +49,15 @@
 
 
                if (isset($_SESSION['user'])) {
-                 #is there is cookie/there is a session, then the user has the ability to logout
                ?>
                 <li class="nav-item"> 
               <a class="nav-link" href="contact.html">Contact</a>
                 </li>
+                <li class= "nav-item">
+              <a class= "nav-link" href= "search.php">Search</a>
+            </li>
                 <li class = 'nav-item'>
+
                 <a class = 'nav-link' href ='profile.php'>Profile</a>
                 <li class = 'nav-item'>
                 <a class = 'nav-link' href ='logOut.php'>Logout</a>
@@ -63,13 +66,12 @@
 <?php
 }
                 else {
-                  #if there is no session, there is no cookie saved, the user can still login
                  ?>
                   <li class="nav-item"> 
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class = 'nav-item'>
-                <a class = 'nav-link' href ='login.php'>Log In</a>
+                <a class = 'nav-link' href ='logOut.php'>Login</a>
               </li>
                 
             <li class= "nav-item">
