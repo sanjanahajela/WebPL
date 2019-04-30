@@ -44,23 +44,16 @@
 
 
 <div class="container">
-  <h1>
+  <h1 [ngStyle]="{ 'text-align': 'center'}" >
     {{ title }}
   </h1>
   <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
     a matter of hours to help you.</p>
-  Display data received from the back end <br/>
-  response data = {{ responsedata | json}}
-  <br/>
-  <hr/>
-  Data binding exercise 
-  <br/>
-  {{ orderForm.value | json }}
-  <br/>
-  {{ orderModel | json }} 
+ 
   <hr/>
 
-  <form action = 'http://localhost/WebPL/mail.php' #orderForm="ngForm" >
+  <form  [ngClass]="{bordered: true}" action = 'http://localhost/WebPL/ngphp-post.php' #orderForm="ngForm" method = 'post' >
+    <br>
     <div class="form-group">
       <label>Name: </label>
       <input required #name="ngModel" 
@@ -91,35 +84,27 @@
     </div>
 
 
-
-    <div class="form-group">
-      <label>Hot or cold?</label>
-      <div class="form-check">
-        <input [(ngModel)]="orderModel.tempPreference" class="form-check-input" type="radio" name="tempPreference" value="hot">
-        <label class="form-check-label">Hot</label>
-      </div>
-      <div class="form-check">
-        <input [(ngModel)]="orderModel.tempPreference" class="form-check-input" type="radio" name="tempPreference" value="cold"> 
-        <label class="form-check-label">Cold</label>
-      </div>
-    </div>
   
     <div class="form-check mb-3">
       <input [(ngModel)]="orderModel.sendText" class=" form-check-input" type="checkbox" name="sendtxt" ng-init="orderModel.sendText == true">
       <label class="form-check-label">Anonymous </label>
       <div *ngIf="orderModel.sendText == true">
-        <b>You're name will remail a secret! </b> <br/>
+        <p [ngStyle]="{ 'color': getRandomColor(),'font-weight': 'bold'}"   >You're name will remail a secret! </p> 
+        
         </div> 
     </div>
 
+  
+
 
     
-    <a class="btn btn-primary" (click)="senddata(orderForm.value)">Submit</a>
-
-
-
+  
   </form>
 
+
+  <br>
+
+  <a class="btn btn-primary" (click)="senddata(orderForm.value)" href = "http://localhost/WebPL/ngphp-post.php">Submit</a>
 
 
 

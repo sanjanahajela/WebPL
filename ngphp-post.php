@@ -14,12 +14,12 @@ $postdata = file_get_contents("php://input");
 // process data 
 // (this example simply extracts the data and restructures them back) 
 $request = json_decode($postdata);
-#echo($request);
+echo($request);
 $data = [];
 foreach ($request as $k => $v)
 {
   $data[0][$k] = $v;
-  
+  echo($v);
 }
 
 // sent response (in json format) back to the front end

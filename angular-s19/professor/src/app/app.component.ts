@@ -10,6 +10,19 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 })
 export class AppComponent {
   title = 'Contact Us';
+  randomcolor=this.getRandomColor();
+  public getRandomColor(){
+     var letters = '0123456789ABCDEF'.split('');
+     var color = '#';
+     for (var i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+   return color;
+}
+//function to set a new random color
+setColor(){
+   this.randomcolor=this.getRandomColor();
+}
 
 
   // let's create a property to store a response from the back end
@@ -17,7 +30,7 @@ export class AppComponent {
   responsedata;
 
   drinks = ['Website', 'Professor', 'Rating','Other'];
-  orderModel = new Order('Tom Smith', 'duh@uva.edu', 'math','help', false);
+  orderModel = new Order('Tom Smith', 'duh@uva.edu', '','Concerns', false);
  
   constructor(private http: HttpClient) { }
 
