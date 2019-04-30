@@ -1,4 +1,7 @@
 <?php
+
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
 if(isset( $_POST['name'])){
     $name = $_POST['name'];
     #checks to see if name is set or not
@@ -44,6 +47,68 @@ if ($message === ''){
 die();
 }
 
+
+
+$host = 'localhost';
+$dbusername = 'ks4vp';
+$password = 'CSgods123';
+$dbname = 'professor';
+$usertable="feedback";
+#setting the hostname,database username, database password, database name, and table name 
+
+#Try to Create a Connection
+$conn = new mysqli($host, $dbusername, $password, $dbname);
+
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    if (empty($firt_name)){
+        echo("Enter Professor's first name");
+    }
+
+    $query = "SELECT * from feedback where name ='$name'";
+    #checks if the first name of a professor is in the database but you want to check all 
+    if ($result=mysqli_query($conn,$query))
+    {
+        if(mysqli_num_rows($result) > 0)
+        {
+            $response['sucess'] = 0;
+            echo "Exists";
+        }
+        else{
+            $sql = "INSERT INTO feedback (name, email, subject, message)
+            VALUES ('$name', '$email', '$subject', '$message')";
+            if ($conn->query($sql) === TRUE) {
+                header('location: http://localhost/WebPL/search.php');
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
+        
+    }
+    else{
+        echo "Query Failed.";
+
+    }
+
+        
+
+
+
+    $conn->close();
+
+}
 
 $content="From: $name \nEmail: $email \nMessage: $message";
 $recipient = "youremail@here.com";
