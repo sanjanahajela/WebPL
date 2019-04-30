@@ -14,7 +14,7 @@ $postdata = file_get_contents("php://input");
 // process data 
 // (this example simply extracts the data and restructures them back) 
 $request = json_decode($postdata);
-
+#echo($request);
 $data = [];
 foreach ($request as $k => $v)
 {

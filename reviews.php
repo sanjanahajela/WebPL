@@ -3,7 +3,24 @@
 -->
 
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="">
 
+Keep HTML: <input type="checkbox" ng-model="myVar" ng-init="myVar = true">
+
+<div ng-if="myVar">
+<h1>Welcome</h1>
+<p>Welcome to my home.</p>
+<hr>
+</div>
+
+<p>The DIV element will be removed when the checkbox is not checked.</p>
+<p>The DIV element will return, if you check the checkbox.</p>
+
+</body>
+</html>-->
+
+<body ng-app="">
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     
@@ -13,34 +30,34 @@
     <link rel="stylesheet" href="font-awesome.min.css">
   <style>
   .star-rating{
-	font-size: 0;
+  font-size: 0;
 }
 .star-rating__wrap{
-	display: inline-block;
-	font-size: 1rem;
+  display: inline-block;
+  font-size: 1rem;
 }
 .star-rating__wrap:after{
-	content: "";
-	display: table;
-	clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 .star-rating__ico{
-	float: right;
-	padding-left: 2px;
-	cursor: pointer;
-	color: #FFB300;
+  float: right;
+  padding-left: 2px;
+  cursor: pointer;
+  color: #FFB300;
 }
 .star-rating__ico:last-child{
-	padding-left: 0;
+  padding-left: 0;
 }
 .star-rating__input{
-	display: none;
+  display: none;
 }
 .star-rating__ico:hover:before,
 .star-rating__ico:hover ~ .star-rating__ico:before,
 .star-rating__input:checked ~ .star-rating__ico:before
 {
-	content: "\f005";
+  content: "\f005";
 }
   </style>
 
@@ -58,7 +75,7 @@
     <!-- classic use of the navbar again so that its consistnet going page to page -->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
+    <a class= "navbar-brand"  href = 'home.php'> RateMyProfessor </a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
        <span class="navbar-toggler-icon"></span>
      </button>
@@ -82,8 +99,14 @@
    </nav>
     
     
-    <h1>Rate A Professor</h1>
-   
+    <?php
+      if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+        $last_name = $_GET['last_name'];
+        echo "<h1>"."Rate Professor"." " . $last_name. "!"."</h1>";
+      }
+      
+      ?>
+
 
 
   <div class = 'row'> 
@@ -91,13 +114,7 @@
  <!-- the div class is col-mod-6 because in bootstrap the page is like 12 inches so if you want to split the screen in half you do div of 6 and 6 -->
       <div class = 'col-md-6'>
 
-      <?php
-      if ($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $last_name = $_GET['last_name'];
-        echo "<h2>"."Professor"." " . $last_name."</h2>";
-      }
-      
-      ?>
+
 
 
           
@@ -116,7 +133,7 @@
 
       <div class = 'col-md-6'>
 
-            <form onsubmit= "return validate()" action= "home.html" method= "post">
+            <form onsubmit= "return validate()" action= "reviews.php" method= "post">
                <!-- after form is submitted you are redirected back to homepage to continue searching/voting -->
             
                 <div class = 'rating'>
@@ -139,7 +156,7 @@
                 <!-- rating stars -->
                 <div class="form-group">
                   <label for="course">Select Course</label>
-                  <select class="form-control" id="course">
+                  <select class="form-control" id="course" name = "course">
                     <option value="selectcard">--- Please select ---</option>
                     <option value = 'course1'>CS 1110: Introduction To Programming </option>
                     <option value = 'course2'>CS 3230: Algorithms</option>
@@ -149,7 +166,7 @@
                 </div>
                 <div class="form-group">
                   <label for="credits">Credit of Course</label>
-                  <select multiple class="form-control" id="credits">
+                  <select multiple class="form-control" id="credits" name = "credits">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -208,7 +225,7 @@
         
     }
 }
-        
+
 
 start();
 
@@ -219,7 +236,37 @@ start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="main_styles.css" />
+<?php
 
+$host = 'localhost';
+$dbusername = 'ks4vp';
+$password = 'CSgods123';
+$dbname = 'professor';
+
+
+
+// Create connection
+$conn = new mysqli($host, $dbusername, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+  if($_SERVER['REQUEST_METHOD'] == 'POST') 
+        {     
+    
+    $last_name = $_POST['last_name'];
+    $course = $_POST['course'];
+    $credit = $_POST['credits'];
+    $sql = "INSERT INTO ratings(last_name, course, credits)
+            VALUES ('$last_name', '$course', '$credits'";
+            if ($conn->query($sql) === TRUE) {
+                header('location: http://localhost/WebPL/home.php');
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+          }
+    ?> 
 </body>
 
 </html>
