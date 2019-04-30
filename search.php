@@ -29,7 +29,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class= "navbar-brand"  href = 'home.html'> RateMyProfessor </a>
+      <a class= "navbar-brand"  href = 'home.php'> RateMyProfessor </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +39,7 @@
             
                                         
             <li class="nav-item"> 
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="http://localhost:4200">Contact</a>
             </li>
             <li class = 'nav-item'>
                 <a class = 'nav-link' href ='login.html'>Login</a>

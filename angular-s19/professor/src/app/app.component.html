@@ -52,7 +52,7 @@
  
   <hr/>
 
-  <form  [ngClass]="{bordered: true}" action = 'http://localhost/WebPL/ngphp-post.php' #orderForm="ngForm" method = 'post' >
+  <form  [ngClass]="{bordered: true}" action = 'http://localhost/WebPL/mail.php' #orderForm="ngForm" method = 'post' >
     <br>
     <div class="form-group">
       <label>Name: </label>
@@ -104,7 +104,7 @@
 
   <br>
 
-  <a class="btn btn-primary" (click)="senddata(orderForm.value)" href = "http://localhost/WebPL/ngphp-post.php">Submit</a>
+  <a class="btn btn-primary" (click)="senddata(orderForm.value)" >Submit</a>
 
 
 

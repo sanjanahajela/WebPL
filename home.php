@@ -65,15 +65,18 @@
                 else {
                   #if there is no session, there is no cookie saved, the user can still login
                  ?>
-                  <li class="nav-item"> 
-              <a class="nav-link" href="http://localhost:4200">Contact</a>
-            </li>
-            <li class = 'nav-item'>
-                <a class = 'nav-link' href ='login.php'>Log In</a>
-              </li>
+
+
                 
             <li class= "nav-item">
               <a class= "nav-link" href= "search.php">Search</a>
+                </li>
+              <li class="nav-item"> 
+              <a class="nav-link" href="http://localhost:4200">Contact</a>
+            </li>
+            <li class = 'nav-item'>
+                <a class = 'nav-link' href ='login.html'>Log In</a>
+              </li>
                                        
         <?php
         } ?>    
