@@ -1,4 +1,5 @@
 <?php
+
 if(isset( $_POST['name'])){
     $name = $_POST['name'];
     #checks to see if name is set or not
@@ -43,6 +44,8 @@ if ($message === ''){
     echo "Message cannot be empty.";
 die();
 }
+
+
 
 $host = 'localhost';
 $dbusername = 'ks4vp';
