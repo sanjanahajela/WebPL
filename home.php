@@ -54,7 +54,7 @@
               <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class= "nav-item">
-              <a class= "nav-link" href= "search.php">Search</a>
+              <a class= "nav-link" href= "search2.php">Search</a>
             </li>
                 <li class = 'nav-item'>
 
