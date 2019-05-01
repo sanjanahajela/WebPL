@@ -222,6 +222,7 @@ $dbname = 'professor';
 
 
 
+
 // Create connection
 $conn = new mysqli($host, $dbusername, $password, $dbname);
 // Check connection

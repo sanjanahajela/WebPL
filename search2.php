@@ -1,7 +1,7 @@
 <?php
     $item = $_GET['search'];
-  $host = 'localhost';
-  $dbusername = 'ks4vp';
+  $host = '192.168.64.2';
+  $dbusername = 'sh9as';
   $password = 'CSgods123';
   $dbname = 'professor';
   $usertable="professor";
